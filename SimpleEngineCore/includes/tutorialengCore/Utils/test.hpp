@@ -1,0 +1,3 @@
+namespace tutorialengCore {
+	void sayHello();
+}
