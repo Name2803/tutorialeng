@@ -5,7 +5,7 @@
 int main() {
 	std::cout << "Hello from Tutorial Engin Editor" << std::endl;
 
-	tutorialengCore::sayHello();
+	tutorialengCore::checkGLFW();
 
 	std::cin.get();
 }

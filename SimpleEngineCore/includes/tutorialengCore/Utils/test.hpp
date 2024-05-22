@@ -1,3 +1,3 @@
 namespace tutorialengCore {
-	void sayHello();
+	int checkGLFW();
 }
