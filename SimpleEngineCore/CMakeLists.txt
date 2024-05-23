@@ -2,9 +2,19 @@ cmake_minimum_required(VERSION 3.12)
 
 set(ENGINE_PROJECT_NAME tutorialengCore)
 
+##create variable for add public inlude(.hpp/.h) file paths
+set(ENGINE_PUBLIC_INCLUDES
+	includes/tutorialengCore/Application.hpp
+)
+
+##create variable for add private source(.cpp) file paths
+set(ENGINE_PRIVATE_SOURCES
+	src/tutorialengCore/Application.cpp
+)
+
 add_library(${ENGINE_PROJECT_NAME} STATIC
-	includes/tutorialengCore/Utils/test.hpp
-	src/tutorialengCore/Utils/test.cpp
+	${ENGINE_PUBLIC_INCLUDES}
+	${ENGINE_PRIVATE_SOURCES}
 )
 
 ##make our librery public

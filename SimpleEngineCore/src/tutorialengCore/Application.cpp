@@ -1,12 +1,24 @@
 #include <iostream>
+#pragma once
+
+#include "tutorialengCore/Application.hpp"
 
 #include <GLFW/glfw3.h>
 
-#include "tutorialengCore/Utils/test.hpp"
+namespace Tutorialeng {
 
-namespace tutorialengCore {
-	int checkGLFW() {
-		std::cout << "Hello from Tutorial Engin Core" << std::endl;
+	Application::Application()
+	{
+
+	}
+
+	Application::~Application()
+	{
+
+	}
+
+	int Application::start(unsigned int window_width, unsigned int window_height, const char* title) {
+        std::cout << "Hello from Tutorial Engin Core" << std::endl;
 
         GLFWwindow* window;
 
@@ -15,7 +27,7 @@ namespace tutorialengCore {
             return -1;
 
         /* Create a windowed mode window and its OpenGL context */
-        window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
+        window = glfwCreateWindow(window_width, window_height, title, NULL, NULL);
         if (!window)
         {
             glfwTerminate();
@@ -36,6 +48,8 @@ namespace tutorialengCore {
 
             /* Poll for and process events */
             glfwPollEvents();
+
+            on_update();
         }
 
         glfwTerminate();
