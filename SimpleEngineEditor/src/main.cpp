@@ -6,12 +6,12 @@
 
 class MyApp : public Tutorialeng::Application
 {
-	virtual void on_update() override
+	/*virtual void on_update() override
 	{
 		std::cout << "Update frame: " << frame++ << std::endl;
 	}
 
-	int frame = 0;
+	int frame = 0;*/
 };
 
 int main() 

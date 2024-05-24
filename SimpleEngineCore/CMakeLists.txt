@@ -5,6 +5,7 @@ set(ENGINE_PROJECT_NAME tutorialengCore)
 ##create variable for add public inlude(.hpp/.h) file paths
 set(ENGINE_PUBLIC_INCLUDES
 	includes/tutorialengCore/Application.hpp
+	includes/tutorialengCore/Log.hpp
 )
 
 ##create variable for add private source(.cpp) file paths
@@ -23,6 +24,10 @@ target_include_directories(${ENGINE_PROJECT_NAME} PUBLIC includes)
 target_compile_features(${ENGINE_PROJECT_NAME} PUBLIC cxx_std_17)
 
 ##show path to subdirectory and give to our project another path to copy bin files to correct folder at build folder
-add_subdirectory(../external/glfw ${CMAKE_CURRENT_BINARY_DIR}/glfw)
 ##Link it private to our core for being protected from editing from other programs
+##1. for glfw
+add_subdirectory(../external/glfw ${CMAKE_CURRENT_BINARY_DIR}/glfw)
 target_link_libraries(${ENGINE_PROJECT_NAME} PRIVATE glfw)
+##2. for spdlog  
+add_subdirectory(../external/spdlog ${CMAKE_CURRENT_BINARY_DIR}/spdlog)
+target_link_libraries(${ENGINE_PROJECT_NAME} PRIVATE spdlog)
