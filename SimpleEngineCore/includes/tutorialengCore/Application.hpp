@@ -1,4 +1,7 @@
 #pragma once
+
+#include <memory>
+
 namespace Tutorialeng {
 	
 	class Application {
@@ -16,5 +19,7 @@ namespace Tutorialeng {
 		//called each frame
 		virtual void on_update() {}
 
+	private:
+		std::unique_ptr<class Window> m_pWindow;
 	};
 }

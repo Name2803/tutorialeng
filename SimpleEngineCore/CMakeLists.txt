@@ -7,19 +7,26 @@ set(ENGINE_PUBLIC_INCLUDES
 	includes/tutorialengCore/Application.hpp
 	includes/tutorialengCore/Log.hpp
 )
-
-##create variable for add private source(.cpp) file paths
+##create variable for add private inlude(.hpp/.h) file paths(Can be used only by Core)
+set(ENGINE_PRIVATE_INCLUDES
+	src/tutorialengCore/Window.hpp
+)
+##create variable for add private source(.cpp) file paths(Can be used only by Core)
 set(ENGINE_PRIVATE_SOURCES
 	src/tutorialengCore/Application.cpp
+	src/tutorialengCore/Window.cpp
 )
 
 add_library(${ENGINE_PROJECT_NAME} STATIC
 	${ENGINE_PUBLIC_INCLUDES}
+	${ENGINE_PRIVATE_INCLUDES}
 	${ENGINE_PRIVATE_SOURCES}
 )
 
 ##make our librery public
 target_include_directories(${ENGINE_PROJECT_NAME} PUBLIC includes)
+##make some of librery private
+target_include_directories(${ENGINE_PROJECT_NAME} PRIVATE src)
 ##alows to use features from c++ 17
 target_compile_features(${ENGINE_PROJECT_NAME} PUBLIC cxx_std_17)
 
@@ -31,6 +38,6 @@ target_link_libraries(${ENGINE_PROJECT_NAME} PRIVATE glfw)
 ##2. for spdlog  
 add_subdirectory(../external/spdlog ${CMAKE_CURRENT_BINARY_DIR}/spdlog)
 target_link_libraries(${ENGINE_PROJECT_NAME} PRIVATE spdlog)
-##3. gor glad
+##3. for glad
 add_subdirectory(../external/glad ${CMAKE_CURRENT_BINARY_DIR}/glad)
 target_link_libraries(${ENGINE_PROJECT_NAME} PRIVATE glad)
