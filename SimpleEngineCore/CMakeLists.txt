@@ -6,6 +6,7 @@ set(ENGINE_PROJECT_NAME tutorialengCore)
 set(ENGINE_PUBLIC_INCLUDES
 	includes/tutorialengCore/Application.hpp
 	includes/tutorialengCore/Log.hpp
+	includes/tutorialengCore/Event.hpp
 )
 ##create variable for add private inlude(.hpp/.h) file paths(Can be used only by Core)
 set(ENGINE_PRIVATE_INCLUDES
